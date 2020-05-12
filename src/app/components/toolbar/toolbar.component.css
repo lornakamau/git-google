@@ -1,20 +1,23 @@
-.spacer {
-    flex: 1;
-  }
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+}
 
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
+ img {
+  margin: 0;
+}
 
-  .toolbar img {
-    margin: 0 16px;
-  }
+.navbar {
+  justify-content: space-between;
+}
+
+.links span {
+  padding-right: 1rem;
+}
