@@ -1,8 +1,16 @@
+.content{
+    padding: 5%;
+}
 .tabcontent {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 16px;
-    padding: 16px;
-    border-radius: 8px;
+    flex-wrap: wrap;
+    margin: 3%;
   }
+.media img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 100px;
+}
