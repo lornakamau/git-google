@@ -4,18 +4,18 @@ img {
 .navbar {
   justify-content: space-between;
 }
-.links span {
-  padding-right: 1rem;
-}
-span{
+a{
   font-size: 1rem;
   cursor: pointer;
+  padding-right: 1rem;
+  text-decoration: none;
+  color: white;
 }
 .activeRoute{ /*styles router link that is active*/
-  color: rgb(180, 4, 86);
+  color: rgb(123, 227, 235);
 }
-.links span:hover{ /*animate links on hover*/
-  font-size: 1.05rem;
+.links a:hover{ /*animate links on hover*/
+  font-size: 1.1rem;
   transform: translateY(-3px);
   transition: all 0.3s ease-in-out;
 }
