@@ -7,3 +7,11 @@ img {
 .links span {
   padding-right: 1rem;
 }
+span{
+  font-size: 1rem;
+  cursor: pointer;
+}
+.activeRoute{ /*styles router link that is active*/
+  color: rgb(180, 4, 86);
+}
+
