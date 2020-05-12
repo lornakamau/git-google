@@ -14,4 +14,8 @@ span{
 .activeRoute{ /*styles router link that is active*/
   color: rgb(180, 4, 86);
 }
-
+.links span:hover{ /*animate links on hover*/
+  font-size: 1.05rem;
+  transform: translateY(-3px);
+  transition: all 0.3s ease-in-out;
+}
