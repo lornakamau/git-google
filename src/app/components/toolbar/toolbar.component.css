@@ -1,23 +1,9 @@
-.toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  background-color: #1976d2;
-  color: white;
-}
-
- img {
+img {
   margin: 0;
 }
-
 .navbar {
   justify-content: space-between;
 }
-
 .links span {
   padding-right: 1rem;
 }
