@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  cardBodyA = false;
+
+  toggleCardBody(){
+    this.cardBodyA = !this.cardBodyA;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

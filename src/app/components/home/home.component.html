@@ -1,17 +1,21 @@
-<div class="card text-center">
-    <div class="card-header">
-      <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-      </ul>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <mat-tab-group dynamicHeight>
+                <mat-tab label="Short tab">
+                  <div class="tabcontent">
+                    Small content
+                  </div>
+                </mat-tab>
+                <mat-tab label="Long tab">
+                  <div class="tabcontent">
+                    Large content
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+        </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+</div>
+
+  
