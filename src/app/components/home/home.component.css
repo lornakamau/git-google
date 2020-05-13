@@ -9,8 +9,15 @@
     margin: 3%;
   }
 .media img{
-    width: 200px;
+    max-width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 100px;
 }
+.card {
+    /*animates card elements*/
+    margin: 3%;
+    max-width: 16rem;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
