@@ -9,16 +9,16 @@
         <img src={{user.avatar_url}} class="mr-3 img-responsive img-cirlce" alt="...">
         <div dynamicHeight class="media-body">
           <mat-tab-group dynamicHeight>
-            <mat-tab label="Short tab">
-              <div class="tabcontent">
-                <p *ngIf="user.name">Name: {{user.name}}</p>
-                <p *ngIf="user.login">Username: {{user.login}}</p>
-                <p>Followers: {{user.followers}}</p>
-                <p>Following: {{user.following}}</p>
-                <p *ngIf="user.public_repos">Number of public repositories: {{user.public_repos}}</p>
-                <p *ngIf="user.bio">Bio: {{user.bio}}</p>
-                <p *ngIf="user.created_at">Created on: {{user.created_at|date}}</p>
-                <p *ngIf="user.email">Email: {{user.email}}</p>
+            <mat-tab label="User Info">
+              <div class="tabcontent userInfo">
+                <p *ngIf="user.name"><span>Name:</span>  {{user.name}}</p>
+                <p *ngIf="user.login"><span>Username:</span>  {{user.login}}</p>
+                <p><span>Followers:</span>  {{user.followers}}</p>
+                <p><span>Following:</span>  {{user.following}}</p>
+                <p *ngIf="user.public_repos"><span>Number of public repositories:</span>  {{user.public_repos}}</p>
+                <p *ngIf="user.bio"><span>Bio:</span>  {{user.bio}}</p>
+                <p *ngIf="user.created_at"><span>Created on:</span>  {{user.created_at|date}}</p>
+                <p *ngIf="user.email"><span>Email:</span>  {{user.email}}</p>
               </div>
             </mat-tab> 
             <mat-tab label="Repositories">

@@ -27,14 +27,21 @@
 }
 a{
   text-decoration: none;
+  color: #3f51b5;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
 }
 .card-header{
   padding: 0.5rem;
 }
 .card-bottom{
-  display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
+  display: flex;
+}
+.userInfo{
+  padding: 2%;
+}
+.userInfo span{
+  color: #3f51b5;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
 }
