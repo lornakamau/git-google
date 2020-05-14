@@ -4,7 +4,7 @@
 .tabcontent {
     align-items: center;
     justify-content: center;
-    margin: 3%;
+    margin-top: 3%;
   }
 .media img{
     max-width: 200px;
@@ -23,4 +23,8 @@
   /*allows for cards to append side by side*/
   display: flex;
   flex-wrap: wrap;
+  margin: 2%;
+}
+a{
+  text-decoration: none;
 }
