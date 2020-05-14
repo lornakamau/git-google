@@ -7,7 +7,7 @@ export class Users {
         public url: string,
         public followers: number,
         public following: number,
-        public repos : number, //check this out
+        public public_repos : number, //check this out
         public created_at : Date,
         public avatar_url:string){
             // this.displayRepos = false
