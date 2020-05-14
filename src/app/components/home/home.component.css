@@ -15,7 +15,7 @@
 .card {
     /*animates card elements*/
     margin: 3%;
-    width: 16rem;
+    width: 19rem;
     transform: translateY(-2px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
   }
@@ -27,4 +27,7 @@
 }
 a{
   text-decoration: none;
+}
+.card-header{
+  padding: 0.5rem;
 }

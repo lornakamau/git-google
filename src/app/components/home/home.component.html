@@ -22,11 +22,16 @@
             <mat-tab label="Repositories">
               <div class="tabcontent cards">
                 <div class="card" *ngFor="let repo of repos">
-                  <div class="card-header"><a href={{repo.url}} target="_blank">{{repo.name|titlecase}}</a> <small *ngIf="repo.homepage"><br><a href={{repo.homepage}} class="float-right" target="_blank">Hosted here</a></small></div>
                   <div class="card-body">
-                    <h5 class="card-title"></h5>
+                    <div class="card-title"><a href={{repo.url}} target="_blank">{{repo.name|titlecase}}</a></div>
                     <p class="card-text" *ngIf="repo.description">{{repo.description}}</p>
                     <p class="card-text" *ngIf="!repo.description">No description is available for this repository</p>
+                    <div *ngIf="repo.language">
+                      <i class="fas fa-circle"></i>&nbsp;{{repo.language}}
+                    </div>   
+                    <div *ngIf="!repo.language">
+                      <i class="fas fa-circle"></i>&nbsp;Undefined
+                    </div>  
                   </div>
                 </div>
               </div>
