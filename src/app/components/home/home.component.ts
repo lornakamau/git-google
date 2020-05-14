@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Users } from '../../models/users';
+import { HttpClient } from '@angular/common/http';
+import { SearchGitService } from '../../services/search-git.service';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  cardBodyA = false;
-
-  toggleCardBody(){
-    this.cardBodyA = !this.cardBodyA;
+  user:Users;
+  constructor( private searchGitService: SearchGitService, private http:HttpClient) { }
+ 
+  ngOnInit() {
+    this.searchGitService.userRequest()
+    this.user = this.searchGitService.user
   }
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

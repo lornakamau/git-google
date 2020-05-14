@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  gitAPI: "https://api.github.com/",
+  gitUrl: "https://api.github.com/users/lornakamau",
   API_Key: "82a6143534a22bc2e972e267402cb95b0a7433e2",
   accesstoken: "?access_token=82a6143534a22bc2e972e267402cb95b0a7433e2"
 };
