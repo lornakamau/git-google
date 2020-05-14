@@ -2,10 +2,8 @@
     padding: 5%;
 }
 .tabcontent {
-    display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     margin: 3%;
   }
 .media img{
@@ -17,7 +15,12 @@
 .card {
     /*animates card elements*/
     margin: 3%;
-    max-width: 16rem;
+    width: 16rem;
     transform: translateY(-2px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
   }
+.cards {
+  /*allows for cards to append side by side*/
+  display: flex;
+  flex-wrap: wrap;
+}
