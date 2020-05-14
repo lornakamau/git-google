@@ -3,7 +3,7 @@ img {
 }
 .navbar {
   justify-content: space-between;
-  background-color: black;
+  background-color: #3f51b5;
   color: white;
 }
 a{
@@ -13,14 +13,10 @@ a{
   text-decoration: none;
   color: white;
 }
-/* .activeRoute{ /*styles router link that is active
-  color: rgb(123, 227, 235);
-} */
-/* .links a:hover{ /*animate links on hover
-  font-size: 1.1rem;
-  transform: translateY(-3px);
-  transition: all 0.3s ease-in-out;
-} */
+::placeholder {
+  color: white;
+  font-size: 0.9rem;
+}
 .links{
   display: flex;
 }

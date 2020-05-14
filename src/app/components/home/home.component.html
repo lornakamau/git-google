@@ -1,8 +1,16 @@
 <div class="container-fluid">
   <div class="header text-center">
-    <h1>GitGoogle - Profile finder for Github</h1>
+    <div style="font-size: 6rem;">GitG<span> 
+      <img
+      width="40"
+      alt="Angular Logo"
+      src="../assets/images/github.png"
+    /></span>ogle</div><br><br>
+    <div class="links">
+    <h1>Profile finder for Github</h1>
     <h4>Checkout the repos, followers and more just by searching for a gituser by their username.</h4>
-    <h4>Here's my profile</h4>
+    <i class="fas fa-angle-double-down"></i>
+    </div>
   </div>
     <div class="content">
       <div class="media">
@@ -11,14 +19,14 @@
           <mat-tab-group dynamicHeight>
             <mat-tab label="User Info">
               <div class="tabcontent userInfo">
-                <p *ngIf="user.name"><span>Name:</span>  {{user.name}}</p>
-                <p *ngIf="user.login"><span>Username:</span>  {{user.login}}</p>
-                <p><span>Followers:</span>  {{user.followers}}</p>
-                <p><span>Following:</span>  {{user.following}}</p>
-                <p *ngIf="user.public_repos"><span>Number of public repositories:</span>  {{user.public_repos}}</p>
-                <p *ngIf="user.bio"><span>Bio:</span>  {{user.bio}}</p>
-                <p *ngIf="user.created_at"><span>Created on:</span>  {{user.created_at|date}}</p>
-                <p *ngIf="user.email"><span>Email:</span>  {{user.email}}</p>
+                <p *ngIf="user.name"><span>Name:</span>&nbsp;&nbsp;{{user.name}}</p>
+                <p *ngIf="user.login"><span>Username:</span>&nbsp;&nbsp;{{user.login}}</p>
+                <p><span>Followers:</span>&nbsp;&nbsp;{{user.followers}}</p>
+                <p><span>Following:</span>&nbsp;&nbsp;{{user.following}}</p>
+                <p *ngIf="user.public_repos"><span>Number of public repositories:</span>&nbsp;&nbsp;{{user.public_repos}}</p>
+                <p *ngIf="user.bio"><span>Bio:</span>&nbsp;&nbsp;{{user.bio}}</p>
+                <p *ngIf="user.created_at"><span>Created on:</span>&nbsp;&nbsp;{{user.created_at|date}}</p>
+                <p *ngIf="user.email"><span>Email:</span>&nbsp;&nbsp;{{user.email}}</p>
               </div>
             </mat-tab> 
             <mat-tab label="Repositories">
