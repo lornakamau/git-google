@@ -31,3 +31,10 @@ a{
 .card-header{
   padding: 0.5rem;
 }
+.card-bottom{
+  display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+}

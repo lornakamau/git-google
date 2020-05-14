@@ -5,7 +5,8 @@ export class Repositories {
     public description:string,
     public language:string,
     public url: string,
-    public homepage:string ){
+    public forks:number,
+    public updated_at:Date ){
       // this.showRepo=true;
   }
 }

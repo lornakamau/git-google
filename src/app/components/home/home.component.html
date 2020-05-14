@@ -26,12 +26,18 @@
                     <div class="card-title"><a href={{repo.url}} target="_blank">{{repo.name|titlecase}}</a></div>
                     <p class="card-text" *ngIf="repo.description">{{repo.description}}</p>
                     <p class="card-text" *ngIf="!repo.description">No description is available for this repository</p>
-                    <div *ngIf="repo.language">
-                      <i class="fas fa-circle"></i>&nbsp;{{repo.language}}
-                    </div>   
-                    <div *ngIf="!repo.language">
-                      <i class="fas fa-circle"></i>&nbsp;Undefined
-                    </div>  
+                    <small>Last updated on {{repo.updated_at|date}}</small><br>
+                    <div class="card-bottom">
+                      <div *ngIf="repo.language">
+                        <i class="fas fa-circle"></i>&nbsp;{{repo.language}}
+                      </div>&nbsp;&nbsp;
+                      <div *ngIf="!repo.language">
+                        <i class="fas fa-circle"></i>&nbsp;Undefined
+                      </div>&nbsp;&nbsp;
+                      <div>
+                        {{repo.forks}}&nbsp;<i class="fas fa-code-branch"></i>&nbsp;Forks
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
