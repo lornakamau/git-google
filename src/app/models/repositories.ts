@@ -4,7 +4,8 @@ export class Repositories {
     public name:string,
     public description:string,
     public language:string,
-    public url: string ){
+    public url: string,
+    public homepage:string ){
       // this.showRepo=true;
   }
 }

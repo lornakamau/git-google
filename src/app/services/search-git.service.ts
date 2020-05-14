@@ -63,11 +63,12 @@ export class SearchGitService {
       this.repos.length = 0;
       this.http.get<repoApiResponse>(`${environment.gitUrl}${this.username}/repos?client_id=${environment.API_Key}`).toPromise().then(response=>{
         for(let i=0; i<response["length"]; i++){
-          let repo = new Repositories("","","","");
+          let repo = new Repositories("","","","","");
         repo.name =  response[i]["name"]
         repo.description =  response[i]["description"]
         repo.language =  response[i]["language"]
         repo.url =  response[i]["url"]
+        repo.homepage = response[i]["homepage"]
         this.repos.push(repo)
         console.log(repo.name)
         }
