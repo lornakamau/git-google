@@ -10,10 +10,12 @@ import { Repositories } from '../models/repositories';
 export class SearchGitService {
 
   user:Users; 
+  repos:Repositories[] = [];
   username:string;
 
   constructor( private http:HttpClient ) {
     this.user = new Users("","","","",0,0,0,new Date (),"");
+    // this.repos = new Repositories("","","","");
     this.username = "lornakamau";
   }
   
@@ -48,6 +50,36 @@ export class SearchGitService {
       })
     })
     return promise
+  }
+
+  repoRequest(){
+    interface repoApiResponse{
+    name:string,
+    description:string,
+    language:string,
+    url: string
+    }
+    let promise = new Promise((resolve,reject)=>{
+      this.repos.length = 0;
+      this.http.get<repoApiResponse>(`${environment.gitUrl}${this.username}/repos?client_id=${environment.API_Key}`).toPromise().then(response=>{
+        for(let i=0; i<response["length"]; i++){
+          let repo = new Repositories("","","","");
+        repo.name =  response[i]["name"]
+        repo.description =  response[i]["description"]
+        repo.language =  response[i]["language"]
+        repo.url =  response[i]["url"]
+        this.repos.push(repo)
+        console.log(repo.name)
+        }
+        resolve()
+      },
+      error=>{
+        console.log("an error occured")
+        reject(error)
+      })
+    })
+    return this.repos
+    
   }
 }
       
