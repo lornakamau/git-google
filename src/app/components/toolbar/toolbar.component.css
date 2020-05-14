@@ -13,14 +13,17 @@ a{
   text-decoration: none;
   color: white;
 }
-.activeRoute{ /*styles router link that is active*/
+/* .activeRoute{ /*styles router link that is active
   color: rgb(123, 227, 235);
-}
-.links a:hover{ /*animate links on hover*/
+} */
+/* .links a:hover{ /*animate links on hover
   font-size: 1.1rem;
   transform: translateY(-3px);
   transition: all 0.3s ease-in-out;
-}
+} */
 .links{
   display: flex;
+}
+.input-group-append button:hover{
+  background-color: transparent;
 }

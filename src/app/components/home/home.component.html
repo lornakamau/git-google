@@ -4,9 +4,7 @@
     <h4>Checkout the repos, followers and more just by searching for a gituser by their username.</h4>
     <h4>Here's my profile</h4>
   </div>
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10 content">
+    <div class="content">
       <div class="media">
         <img src={{user.avatar_url}} class="mr-3 img-responsive img-cirlce" alt="...">
         <div dynamicHeight class="media-body">
@@ -15,8 +13,12 @@
               <div class="tabcontent">
                 <p *ngIf="user.name">Name: {{user.name}}</p>
                 <p *ngIf="user.login">Username: {{user.login}}</p>
-                <p *ngIf="user.public_repos">{{user.public_repos}}</p>
-                <p *ngIf="user.created_at">{{user.created_at|date}}</p>
+                <p>Followers: {{user.followers}}</p>
+                <p>Following: {{user.following}}</p>
+                <p *ngIf="user.public_repos">Number of public repositories: {{user.public_repos}}</p>
+                <p *ngIf="user.bio">Bio: {{user.bio}}</p>
+                <p *ngIf="user.created_at">Created on: {{user.created_at|date}}</p>
+                <p *ngIf="user.email">Email: {{user.email}}</p>
               </div>
             </mat-tab> 
             <mat-tab label="Repositories">
@@ -46,6 +48,4 @@
         </div>
       </div>
     </div>
-    <div class="col-md-1"></div>
-  </div>
 </div>

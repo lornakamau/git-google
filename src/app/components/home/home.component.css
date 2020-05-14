@@ -1,5 +1,5 @@
 .content{
-    padding: 5%;
+    padding: 6%;
 }
 .tabcontent {
     align-items: center;
@@ -7,10 +7,10 @@
     margin-top: 3%;
   }
 .media img{
-    max-width: 200px;
-    height: 200px;
+    max-width: 260px;
+    height: 260px;
     object-fit: cover;
-    border-radius: 100px;
+    border-radius: 130px;
 }
 .card {
     /*animates card elements*/

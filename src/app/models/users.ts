@@ -9,7 +9,8 @@ export class Users {
         public following: number,
         public public_repos : number, //check this out
         public created_at : Date,
-        public avatar_url:string){
+        public avatar_url:string,
+        public email:string){
             // this.displayRepos = false
         }
 }

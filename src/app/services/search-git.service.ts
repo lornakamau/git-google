@@ -14,7 +14,7 @@ export class SearchGitService {
   username:string;
 
   constructor( private http:HttpClient ) {
-    this.user = new Users("","","","",0,0,0,new Date (),"");
+    this.user = new Users("","","","",0,0,0,new Date (),"","");
     // this.repos = new Repositories("","","","");
     this.username = "lornakamau";
   }
@@ -30,6 +30,7 @@ export class SearchGitService {
       public_repos : number; //check this out
       created_at : Date;
       avatar_url:string;
+      email: string;
     }
     let promise = new Promise((resolve,reject)=>{
       this.http.get<userApiResponse>(`${environment.gitUrl}${this.username}?client_id=${environment.API_Key}`).toPromise().then(response=>{
@@ -42,6 +43,7 @@ export class SearchGitService {
         this.user.public_repos =  response.public_repos
         this.user.created_at =  response.created_at
         this.user.avatar_url =  response.avatar_url
+        this.user.email = response.email
         resolve()
       },
       error=>{
