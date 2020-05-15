@@ -32,6 +32,9 @@ a{
   font-weight: bold;
   letter-spacing: 0.05rem;
 }
+a:hover{
+  text-decoration: underline;
+}
 .card-header{
   padding: 0.5rem;
 }

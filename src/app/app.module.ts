@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { DaysAgoPipe } from './pipes/days-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
     HomeComponent,
     SearchResultComponent,
     PageNotFoundComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    DaysAgoPipe
   ],
   imports: [
     BrowserModule,

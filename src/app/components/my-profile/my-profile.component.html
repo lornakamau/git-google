@@ -12,7 +12,7 @@
                   <p><span>Following:</span>&nbsp;&nbsp;{{user.following}}</p>
                   <p *ngIf="user.public_repos"><span>Number of public repositories:</span>&nbsp;&nbsp;{{user.public_repos}}</p>
                   <p *ngIf="user.bio"><span>Bio:</span>&nbsp;&nbsp;{{user.bio}}</p>
-                  <p *ngIf="user.created_at"><span>Created on:</span>&nbsp;&nbsp;{{user.created_at|date}}</p>
+                  <p *ngIf="user.created_at"><span>Created on:</span>&nbsp;&nbsp;{{user.created_at|date}}&nbsp;({{user.created_at|daysAgo}}) days(s) ago</p>
                   <p *ngIf="user.email"><span>Email:</span>&nbsp;&nbsp;{{user.email}}</p>
                 </div>
               </mat-tab> 
