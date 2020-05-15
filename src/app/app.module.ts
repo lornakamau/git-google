@@ -15,6 +15,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatIconModule} from '@angular/material/icon';
     ToolbarComponent,
     HomeComponent,
     SearchComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,
