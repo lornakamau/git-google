@@ -5,22 +5,23 @@ import { SearchGitService } from '../../services/search-git.service';
 import { Repositories } from 'src/app/models/repositories'; 
 
 @Component({
-  selector: 'app-my-profile',
-  templateUrl: './my-profile.component.html',
-  styleUrls: ['./my-profile.component.css']
+  selector: 'app-search',
+  templateUrl: './searchResult.component.html',
+  styleUrls: ['./searchResult.component.css']
 })
-export class MyProfileComponent implements OnInit {
+export class SearchResultComponent implements OnInit {
 
-  repos:Repositories[];
-  user:Users;
+  @Input() repos:Repositories[];
+  @Input() user:Users;
+  username:string;
 
   constructor(private searchGitService: SearchGitService, private http:HttpClient) {}
 
   ngOnInit(){
-    this.searchGitService.userRequest("lornakamau")
+    this.searchGitService.userRequest(this.username)
     this.user = this.searchGitService.user
-    this.searchGitService.repoRequest("lornakamau")
+    this.searchGitService.repoRequest(this.username)
     this.repos =this.searchGitService.repos
   }
+
 }
- 

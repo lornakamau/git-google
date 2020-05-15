@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './components/home/home.component';
-import { SearchComponent } from './components/search/search.component';
+import { SearchResultComponent } from './components/searchResult/searchResult.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -22,7 +22,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
     AppComponent,
     ToolbarComponent,
     HomeComponent,
-    SearchComponent,
+    SearchResultComponent,
     PageNotFoundComponent,
     MyProfileComponent
   ],

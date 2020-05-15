@@ -1,9 +1,6 @@
 .container-fluid{
   padding:0;
 }
-#content{
-    padding: 6%;
-}
 .header{
   /* background-image: url("../../../assets/images/background1.jpg"); */
   background-attachment: fixed;
@@ -14,51 +11,6 @@
 }
 .header .content{
   padding: 9%;
-}
-.tabcontent {
-    align-items: center;
-    justify-content: center;
-    margin-top: 3%;
-  }
-.media img{
-    max-width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 110px;
-}
-.card {
-    /*animates card elements*/
-    margin: 3%;
-    width: 19rem;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-.cards {
-  /*allows for cards to append side by side*/
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2%;
-}
-a{
-  text-decoration: none;
-  color: #3f51b5;
-  font-weight: bold;
-  letter-spacing: 0.05rem;
-}
-.card-header{
-  padding: 0.5rem;
-}
-.card-bottom{
-  display: flex;
-}
-.userInfo{
-  padding: 2%;
-  padding-left: 5%;
-}
-.userInfo span{
-  color: #3f51b5;
-  font-weight: bold;
-  letter-spacing: 0.05rem;
 }
 .fa-angle-double-down {
   animation: bounce 2s infinite;
@@ -74,4 +26,9 @@ a{
   60% {
     transform: translateY(-15px);
   }
+}
+a{
+  text-decoration: none;
+  color: #3f51b5;
+  font-weight: bold;
 }

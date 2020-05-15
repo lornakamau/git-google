@@ -16,10 +16,10 @@ export class SearchGitService {
   constructor( private http:HttpClient ) {
     this.user = new Users("","","","",0,0,0,new Date (),"","");
     // this.repos = new Repositories("","","","");
-    this.username = "lornakamau";
+    // this.username = "lornakamau";
   }
   
-  userRequest(){
+  userRequest(username){
     interface userApiResponse{
       name:string;
       login:string;
@@ -33,7 +33,7 @@ export class SearchGitService {
       email: string;
     }
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<userApiResponse>(`${environment.gitUrl}${this.username}?client_id=${environment.API_Key}`).toPromise().then(response=>{
+      this.http.get<userApiResponse>(`${environment.gitUrl}${username}?client_id=${environment.API_Key}`).toPromise().then(response=>{
         this.user.name =  response.name
         this.user.login = response.login
         this.user.bio =  response.bio
@@ -54,7 +54,7 @@ export class SearchGitService {
     return promise
   }
 
-  repoRequest(){
+  repoRequest(username){
     interface repoApiResponse{
     name:string,
     description:string,
@@ -63,7 +63,7 @@ export class SearchGitService {
     }
     let promise = new Promise((resolve,reject)=>{
       this.repos.length = 0;
-      this.http.get<repoApiResponse>(`${environment.gitUrl}${this.username}/repos?client_id=${environment.API_Key}`).toPromise().then(response=>{
+      this.http.get<repoApiResponse>(`${environment.gitUrl}${username}/repos?client_id=${environment.API_Key}`).toPromise().then(response=>{
         for(let i=0; i<response["length"]; i++){
           let repo = new Repositories("","","","",0,new Date());
         repo.name =  response[i]["name"]
@@ -73,7 +73,6 @@ export class SearchGitService {
         repo.forks = response[i]["forks"]
         repo.updated_at = response[i]["updated_at"]
         this.repos.push(repo)
-        console.log(repo.name)
         }
         resolve()
       },
@@ -83,7 +82,10 @@ export class SearchGitService {
       })
     })
     return this.repos
-    
+  }
+
+  updateUsername(username:string){
+    this.username = username;
   }
 }
       
