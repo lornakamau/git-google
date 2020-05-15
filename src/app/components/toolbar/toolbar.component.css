@@ -23,3 +23,6 @@ a{
 .input-group-append button:hover{
   background-color: transparent;
 }
+.input-group-append button{
+  border-color: white;
+}
