@@ -8,11 +8,13 @@
   /></span>ogle</div>
   <div class="links">
     <a routerLink = "/home" routerLinkActive = "activeRoute">Home</a>
-    <div class="input-group" style="width: 13rem">
-      <input type="text" class="form-control" placeholder="Search by username" aria-describedby="button-addon2" [(ngModel)]= "username" name="username" style="background-color: transparent; color: white;">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" routerLink = "/search-result" routerLinkActive = "activeRoute"><a><i class="fas fa-search" style="width:0.4rem;" (click)="findProfile()"></i></a></button>
+    <form #heroForm="ngForm">
+      <div class="input-group" style="width: 13rem">
+        <input type="text" class="form-control" placeholder="Search by username" aria-describedby="button-addon2" [(ngModel)]= "username" name="username" style="background-color: transparent; color: white;">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" routerLink = "/search-result" routerLinkActive = "activeRoute" (click)="findProfile(); heroForm.reset()"><a><i class="fas fa-search" style="width:0.4rem;"></i></a></button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </mat-toolbar>

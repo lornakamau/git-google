@@ -22,8 +22,7 @@ export class ToolbarComponent implements OnInit {
     this.searchGitService.repoRequest(this.username)
     this.repos =this.searchGitService.repos
   }
-  ngOnInit(): void {
-    
+  ngOnInit(){
   }
 
 }

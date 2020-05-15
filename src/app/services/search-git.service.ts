@@ -15,8 +15,6 @@ export class SearchGitService {
 
   constructor( private http:HttpClient ) {
     this.user = new Users("","","","",0,0,0,new Date (),"","");
-    // this.repos = new Repositories("","","","");
-    // this.username = "lornakamau";
   }
   
   userRequest(username){
@@ -59,17 +57,17 @@ export class SearchGitService {
     name:string,
     description:string,
     language:string,
-    url: string
+    html_url: string
     }
     let promise = new Promise((resolve,reject)=>{
-      this.repos.length = 0;
+      // this.repos.length = 0;
       this.http.get<repoApiResponse>(`${environment.gitUrl}${username}/repos?client_id=${environment.API_Key}`).toPromise().then(response=>{
         for(let i=0; i<response["length"]; i++){
           let repo = new Repositories("","","","",0,new Date());
         repo.name =  response[i]["name"]
         repo.description =  response[i]["description"]
         repo.language =  response[i]["language"]
-        repo.url =  response[i]["url"]
+        repo.html_url =  response[i]["html_url"]
         repo.forks = response[i]["forks"]
         repo.updated_at = response[i]["updated_at"]
         this.repos.push(repo)
@@ -83,9 +81,11 @@ export class SearchGitService {
     })
     return this.repos
   }
-
-  updateUsername(username:string){
-    this.username = username;
-  }
+  
+  // updateUserName(userName){
+  //   this.username=userName;
+  //   console.log(userName)
+  //   console.log(this.username)
+  // }
 }
       
