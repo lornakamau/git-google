@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchGitService } from '../../services/search-git.service';
 import { RepositoriesByName } from '../../models/repositories-by-name';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-repo-result',
@@ -10,21 +10,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RepoResultComponent implements OnInit {
 
-  reposByName:RepositoriesByName[];
-  reponame:string;
-  numberOfRepos: number;
-  constructor( private route: ActivatedRoute, private searchGitService: SearchGitService ) {}
+  // reposByName:RepositoriesByName[];
+  // reponame:string;
+  // numberOfRepos: number;
+  // constructor( private route: ActivatedRoute, private searchGitService: SearchGitService ) {}
 
-  repoResult(){
-    this.reponame = this.route.snapshot.paramMap.get('reponame')
-    this.searchGitService.repoByNameRequest(this.reponame);
-    this.reposByName =this.searchGitService.reposByName
-    this.numberOfRepos =this.searchGitService.numberOfRepos
-    console.log(this.numberOfRepos)
-  }
+  // repoResult(){
+  //   this.reponame = this.route.snapshot.paramMap.get('reponame')
+  //   this.searchGitService.repoByNameRequest(this.reponame);
+  //   this.reposByName =this.searchGitService.reposByName
+  //   this.numberOfRepos =this.searchGitService.numberOfRepos
+  //   console.log(this.numberOfRepos)
+  // }
 
   ngOnInit(){
-    this.repoResult()
+    // this.repoResult()
   }
 
 }

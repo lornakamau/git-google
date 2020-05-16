@@ -19,9 +19,16 @@ export class ToolbarComponent implements OnInit {
   searchResult: SearchResultComponent;
   reposByName:RepositoriesByName[];
   reponame:string;
+  isShowUserForm = false;
+  isShowRepoForm = false;
 
   constructor( private router: Router, private searchGitService: SearchGitService ) { }
-  
+  toggleUserForm(){
+    this.isShowUserForm = !this.isShowUserForm;
+  }
+  toggleRepoForm(){
+    this.isShowRepoForm = !this.isShowRepoForm;
+  }
   findProfile(){
     this.router.navigate(['/search-result',this.username]);
     this.searchGitService.userInfoRequest(this.username)
