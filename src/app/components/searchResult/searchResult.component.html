@@ -1,4 +1,9 @@
 <div id="content" class="container-fluid">
+  <div *ngIf="user.login === 'User not found'" class="text-center" style="font-size: 1.5rem; text-transform: uppercase;">
+    <img src="../../../assets/images/oops.png" style="width: 15rem;"><br><br>
+    <p>User Not found.</p>
+    <p><br>Please enter a valid username.</p>
+  </div>
     <div *ngIf="user.login !== 'User not found'">
       <h2 class="text-center">{{user.login}}'s Profile</h2>
     <div class="media">
@@ -44,10 +49,5 @@
         </mat-tab-group>
       </div>
     </div>
-    </div>
-    <div *ngIf="user.login === 'User not found'" class="text-center" style="font-size: 1rem;">
-      <img src="../../../assets/images/oops.png" style="width: 15rem;"><br><br>
-      <p>User Not found.</p>
-      <p><br>Please enter a valid username.</p>
     </div>
 </div>
