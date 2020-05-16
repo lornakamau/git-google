@@ -8,11 +8,19 @@
   /></span>ogle</div>
   <div class="links">
     <a routerLink = "/home" routerLinkActive = "activeRoute">Home</a>
-    <form #searchForm="ngForm">
+    <form #userForm="ngForm">
       <div class="input-group" style="width: 13rem">
         <input type="text" class="form-control" placeholder="Search by username" aria-describedby="button-addon2" [(ngModel)]= "username" name="username" style="background-color: transparent; color: white;">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" routerLink = "/search-result" routerLinkActive = "activeRoute" (click)="findProfile(); searchForm.reset()"><a><i class="fas fa-search" style="width:0.4rem;"></i></a></button>
+          <button class="btn btn-outline-secondary" type="button" routerLink = "/search-result" routerLinkActive = "activeRoute" (click)="findProfile(); userForm.reset()"><a><i class="fas fa-search" style="width:0.4rem;"></i></a></button>
+        </div>
+      </div>
+    </form>
+    <form #repoForm="ngForm">
+      <div class="input-group" style="width: 13rem">
+        <input type="text" class="form-control" placeholder="Search by reponame" aria-describedby="button-addon2" [(ngModel)]= "reponame" name="reponame" style="background-color: transparent; color: white;">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" routerLink = "/repo-result" routerLinkActive = "activeRoute" (click)="findRepos(); repoForm.reset()"><a><i class="fas fa-search" style="width:0.4rem;"></i></a></button>
         </div>
       </div>
     </form>

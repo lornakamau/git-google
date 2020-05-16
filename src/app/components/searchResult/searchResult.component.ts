@@ -1,10 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Users } from '../../models/users';
-import { HttpClient } from '@angular/common/http';
 import { SearchGitService } from '../../services/search-git.service';
 import { Repositories } from 'src/app/models/repositories'; 
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { RepositoriesByName } from '../../models/repositories-by-name';
 
 @Component({
   selector: 'app-search',
@@ -21,9 +20,9 @@ export class SearchResultComponent implements OnInit {
 
   searchResult(){
     this.username = this.route.snapshot.paramMap.get('username')
-    this.searchGitService.userRequest(this.username)
+    this.searchGitService.userInfoRequest(this.username)
     this.user = this.searchGitService.user
-    this.searchGitService.repoRequest(this.username)
+    this.searchGitService.userRepoRequest(this.username)
     this.repos =this.searchGitService.repos
   }
 

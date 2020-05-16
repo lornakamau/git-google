@@ -18,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { DaysAgoPipe } from './pipes/days-ago.pipe';
 import { LanguageColorDirective } from './directives/language-color.directive';
+import { RepoResultComponent } from './components/repo-result/repo-result.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LanguageColorDirective } from './directives/language-color.directive';
     PageNotFoundComponent,
     MyProfileComponent,
     DaysAgoPipe,
-    LanguageColorDirective
+    LanguageColorDirective,
+    RepoResultComponent
   ],
   imports: [
     BrowserModule,

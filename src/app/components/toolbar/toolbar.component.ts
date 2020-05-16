@@ -3,7 +3,8 @@ import { SearchGitService } from '../../services/search-git.service';
 import { Users } from '../../models/users';
 import { Repositories } from 'src/app/models/repositories'; 
 import { Router } from '@angular/router';
-import { SearchResultComponent } from '../searchResult/searchResult.component';
+import { SearchResultComponent} from '../searchResult/searchResult.component';
+import { RepositoriesByName } from '../../models/repositories-by-name';
 
 @Component({
   selector: 'app-toolbar',
@@ -16,16 +17,22 @@ export class ToolbarComponent implements OnInit {
   user:Users;
   repos:Repositories[];
   searchResult: SearchResultComponent;
-  userTest:string;
+  reposByName:RepositoriesByName[];
+  reponame:string;
 
   constructor( private router: Router, private searchGitService: SearchGitService ) { }
   
   findProfile(){
     this.router.navigate(['/search-result',this.username]);
-    this.searchGitService.userRequest(this.username)
+    this.searchGitService.userInfoRequest(this.username)
     this.user = this.searchGitService.user
-    this.searchGitService.repoRequest(this.username)
+    this.searchGitService.userRepoRequest(this.username)
     this.repos =this.searchGitService.repos
+  }
+  findRepos(){
+    this.router.navigate(['/repo-result',this.reponame]);
+    this.searchGitService.repoByNameRequest(this.reponame);
+    this.reposByName =this.searchGitService.reposByName
   }
   ngOnInit(){
   }

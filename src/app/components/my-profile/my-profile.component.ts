@@ -17,9 +17,9 @@ export class MyProfileComponent implements OnInit {
   constructor(private searchGitService: SearchGitService, private http:HttpClient) {}
 
   ngOnInit(){
-    this.searchGitService.userRequest("lornakamau")
+    this.searchGitService.userInfoRequest("lornakamau")
     this.user = this.searchGitService.user
-    this.searchGitService.repoRequest("lornakamau")
+    this.searchGitService.userRepoRequest("lornakamau")
     this.repos =this.searchGitService.repos
   }
 }

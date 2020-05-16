@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { Users } from '../models/users'; 
 import { Repositories } from '../models/repositories';
 import { ActivatedRoute } from '@angular/router';
+import { RepositoriesByName } from '../models/repositories-by-name';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,10 @@ export class SearchGitService {
   user:Users; 
   repos:Repositories[] = [];
   username:string;
-  
+  reposByName:RepositoriesByName[] = [];
+  reponame: string;
+  numberOfRepos: number;
+  repositories =[]
 
   constructor( private http:HttpClient, private route: ActivatedRoute ) {
     this.user = new Users("","","","",0,0,0,new Date (),"","");
@@ -21,7 +25,7 @@ export class SearchGitService {
     console.log(this.username)
   }
   
-  userRequest(username){
+  userInfoRequest(username){
     interface userApiResponse{
       name:string;
       login:string;
@@ -57,7 +61,7 @@ export class SearchGitService {
     return promise
   }
 
-  repoRequest(username){
+  userRepoRequest(username){
     interface repoApiResponse{
     name:string,
     description:string,
@@ -89,11 +93,45 @@ export class SearchGitService {
     })
     return promise
   }
+
+  // https://api.github.com/search/repositories?q=lorna+portfolio
+  repoByNameRequest(reponame){
+    interface repoByNameApiResponse{
+      total_count:number,
+      name:string,
+      description:string,
+      language:string,
+      html_url: string,
+      items: []
+      }
+      let promise = new Promise((resolve,reject)=>{
+        let arrayLength = this.reposByName.length;
+        for(let i=0; i<arrayLength; i++){ //removing initial values from array before pushing to the array
+          this.reposByName.pop()
+        }
+        this.http.get<repoByNameApiResponse>(`https://api.github.com/search/repositories?q=${reponame}`).toPromise().then(response=>{
+          this.numberOfRepos =response.total_count
+          this.repositories = response.items
+          for(let i=0; i<response.items.length; i++){
+            let repoByName = new RepositoriesByName ("","","",0,new Date());
+          repoByName.description =  response.items[i]["description"]
+          repoByName.language =  response.items[i]["language"]
+          repoByName.html_url =  response.items[i]["html_url"]
+          repoByName.forks = response.items[i]["forks"]
+          repoByName.updated_at = response.items[i]["updated_at"]
+          this.reposByName.push(repoByName)
+          }
+          resolve()
+          console.log(this.reposByName)
+        },
+        error=>{
+          console.log("an error occured")
+          reject(error)
+        })
+      })
+      return promise
+  }
   
-  // updateUsername(){
-  //   this.username=userName;
-  //   console.log(userName)
-  //   console.log(this.username)
-  // }
 }
+  
       
