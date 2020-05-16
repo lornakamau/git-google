@@ -3,6 +3,8 @@ import { Users } from '../../models/users';
 import { HttpClient } from '@angular/common/http';
 import { SearchGitService } from '../../services/search-git.service';
 import { Repositories } from 'src/app/models/repositories'; 
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @Component({
   selector: 'app-search',
@@ -11,17 +13,21 @@ import { Repositories } from 'src/app/models/repositories';
 })
 export class SearchResultComponent implements OnInit {
 
-  @Input() repos:Repositories[];
-  @Input() user:Users;
-  username:string;
+  repos:Repositories[];
+  user:Users;
+  username:string;  
 
-  constructor(private searchGitService: SearchGitService, private http:HttpClient) {}
+  constructor( private route: ActivatedRoute, private searchGitService: SearchGitService ) {}
 
-  ngOnInit(){
+  searchResult(){
+    this.username = this.route.snapshot.paramMap.get('username')
     this.searchGitService.userRequest(this.username)
     this.user = this.searchGitService.user
     this.searchGitService.repoRequest(this.username)
     this.repos =this.searchGitService.repos
   }
 
+  ngOnInit(){
+    this.searchResult()
+  }
 }

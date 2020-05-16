@@ -17,6 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { DaysAgoPipe } from './pipes/days-ago.pipe';
+import { LanguageColorDirective } from './directives/language-color.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DaysAgoPipe } from './pipes/days-ago.pipe';
     SearchResultComponent,
     PageNotFoundComponent,
     MyProfileComponent,
-    DaysAgoPipe
+    DaysAgoPipe,
+    LanguageColorDirective
   ],
   imports: [
     BrowserModule,

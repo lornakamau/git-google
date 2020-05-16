@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Users } from '../models/users'; 
 import { Repositories } from '../models/repositories';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,12 @@ export class SearchGitService {
   user:Users; 
   repos:Repositories[] = [];
   username:string;
+  
 
-  constructor( private http:HttpClient ) {
+  constructor( private http:HttpClient, private route: ActivatedRoute ) {
     this.user = new Users("","","","",0,0,0,new Date (),"","");
+    this.username = this.route.snapshot.paramMap.get('username')
+    console.log(this.username)
   }
   
   userRequest(username){
@@ -45,6 +49,7 @@ export class SearchGitService {
         resolve()
       },
       error=>{
+        this.user.login= "User not found"
         console.log("an error occured")
         reject(error)
       })
@@ -60,7 +65,10 @@ export class SearchGitService {
     html_url: string
     }
     let promise = new Promise((resolve,reject)=>{
-      // this.repos.length = 0;
+      let arrayLength = this.repos.length;
+      for(let i=0; i<arrayLength; i++){ //removing initial values from repos array before pushing to the array
+        this.repos.pop()
+      }
       this.http.get<repoApiResponse>(`${environment.gitUrl}${username}/repos?client_id=${environment.API_Key}`).toPromise().then(response=>{
         for(let i=0; i<response["length"]; i++){
           let repo = new Repositories("","","","",0,new Date());
@@ -79,10 +87,10 @@ export class SearchGitService {
         reject(error)
       })
     })
-    return this.repos
+    return promise
   }
   
-  // updateUserName(userName){
+  // updateUsername(){
   //   this.username=userName;
   //   console.log(userName)
   //   console.log(this.username)
