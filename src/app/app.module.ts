@@ -14,11 +14,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { DaysAgoPipe } from './pipes/days-ago.pipe';
 import { LanguageColorDirective } from './directives/language-color.directive';
 import { RepoResultComponent } from './components/repo-result/repo-result.component';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,10 @@ import { RepoResultComponent } from './components/repo-result/repo-result.compon
     MatInputModule,
     MatInputModule,
     HttpClientModule,
-    FormsModule
+    MatProgressBarModule,
+    FormsModule,
+    NgProgressModule.forRoot(),
+    NgProgressHttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

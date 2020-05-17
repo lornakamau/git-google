@@ -50,8 +50,6 @@ a:hover{
   font-weight: bold;
   letter-spacing: 0.05rem;
 }
-@media screen and (max-width: 600px) {
-    h2 {
-      background-color: purple;
-    }
-  }
+.fas{
+  font-size: 0.9rem;
+}

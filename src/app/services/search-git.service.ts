@@ -120,6 +120,7 @@ export class SearchGitService {
           console.log(this.reposByName)
         },
         error=>{
+          this.numberOfRepos= 0;
           console.log("an error occured")
           reject(error)
         })
