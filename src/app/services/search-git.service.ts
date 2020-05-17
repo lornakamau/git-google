@@ -16,13 +16,12 @@ export class SearchGitService {
   username:string;
   reposByName:RepositoriesByName[] = [];
   reponame: string;
-  numberOfRepos: number;
+  numberOfRepos: number = 0;
   repositories =[]
+  repoByName = new RepositoriesByName ("","","",0,new Date());
 
   constructor( private http:HttpClient, private route: ActivatedRoute ) {
     this.user = new Users("","","","",0,0,0,new Date (),"","");
-    this.username = this.route.snapshot.paramMap.get('username')
-    console.log(this.username)
   }
   
   userInfoRequest(username){
@@ -98,12 +97,8 @@ export class SearchGitService {
   repoByNameRequest(reponame){
     interface repoByNameApiResponse{
       total_count:number,
-      name:string,
-      description:string,
-      language:string,
-      html_url: string,
       items: []
-      }
+      } 
       let promise = new Promise((resolve,reject)=>{
         let arrayLength = this.reposByName.length;
         for(let i=0; i<arrayLength; i++){ //removing initial values from array before pushing to the array
@@ -111,15 +106,15 @@ export class SearchGitService {
         }
         this.http.get<repoByNameApiResponse>(`https://api.github.com/search/repositories?q=${reponame}`).toPromise().then(response=>{
           this.numberOfRepos =response.total_count
-          this.repositories = response.items
+          // this.repositories = response.items
           for(let i=0; i<response.items.length; i++){
-            let repoByName = new RepositoriesByName ("","","",0,new Date());
-          repoByName.description =  response.items[i]["description"]
-          repoByName.language =  response.items[i]["language"]
-          repoByName.html_url =  response.items[i]["html_url"]
-          repoByName.forks = response.items[i]["forks"]
-          repoByName.updated_at = response.items[i]["updated_at"]
-          this.reposByName.push(repoByName)
+            this.repoByName = new RepositoriesByName ("","","",0,new Date());
+          this.repoByName.description =  response.items[i]["description"]
+          this.repoByName.language =  response.items[i]["language"]
+          this.repoByName.html_url =  response.items[i]["html_url"]
+          this.repoByName.forks = response.items[i]["forks"]
+          this.repoByName.updated_at = response.items[i]["updated_at"]
+          this.reposByName.push(this.repoByName)
           }
           resolve()
           console.log(this.reposByName)
