@@ -20,7 +20,7 @@ export class RepoResultComponent implements OnInit {
     this.searchGitService.repoByNameRequest(this.reponame);
     this.reposByName =this.searchGitService.reposByName;
     console.log(this.reposByName)
-    // this.numberOfRepos =this.searchGitService.numberOfRepos
+    this.numberOfRepos =this.searchGitService.numberOfRepos
   }
 
   ngOnInit(){

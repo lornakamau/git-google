@@ -1,9 +1,9 @@
 <div id="content" class="container-fluid">
   <div *ngIf="user.login === 'User not found'" class="text-center"
-    style="font-size: 1.5rem; text-transform: uppercase;">
-    <img src="../../../assets/images/oops.png" style="width: 15rem;"><br><br>
-    <p>User Not found.</p>
-    <p><br>Please enter a valid username.</p>
+    style="font-size: 1.5rem;">
+    <img src="../../../assets/images/search.png" style="width: 8rem;"><br><br><br>
+    <p>We couldn’t find any users matching '{{username}}'</p><br>
+    <p>Please enter a valid username.</p>
   </div>
   <div *ngIf="user.login !== 'User not found'">
     <h2 class="text-center">{{user.login}}'s Profile</h2>

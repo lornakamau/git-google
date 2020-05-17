@@ -16,9 +16,8 @@ export class SearchGitService {
   username:string;
   reposByName:RepositoriesByName[] = [];
   reponame: string;
-  numberOfRepos: number = 0;
+  numberOfRepos: number;
   repositories =[]
-  repoByName = new RepositoriesByName ("","","",0,new Date());
 
   constructor( private http:HttpClient, private route: ActivatedRoute ) {
     this.user = new Users("","","","",0,0,0,new Date (),"","");
@@ -108,13 +107,14 @@ export class SearchGitService {
           this.numberOfRepos =response.total_count
           // this.repositories = response.items
           for(let i=0; i<response.items.length; i++){
-            this.repoByName = new RepositoriesByName ("","","",0,new Date());
-          this.repoByName.description =  response.items[i]["description"]
-          this.repoByName.language =  response.items[i]["language"]
-          this.repoByName.html_url =  response.items[i]["html_url"]
-          this.repoByName.forks = response.items[i]["forks"]
-          this.repoByName.updated_at = response.items[i]["updated_at"]
-          this.reposByName.push(this.repoByName)
+            let repoByName = new RepositoriesByName ("","","","",0,new Date());
+          repoByName.name =  response.items[i]["name"]
+          repoByName.description =  response.items[i]["description"]
+          repoByName.language =  response.items[i]["language"]
+          repoByName.html_url =  response.items[i]["html_url"]
+          repoByName.forks = response.items[i]["forks"]
+          repoByName.updated_at = response.items[i]["updated_at"]
+          this.reposByName.push(repoByName)
           }
           resolve()
           console.log(this.reposByName)

@@ -1,5 +1,5 @@
 <p>repo-result works!</p>
-{{reponame}}
+{{numberOfRepos}}
 <div class="cards">
     <div class="card" *ngFor="let repoByName of reposByName">
       <div class="card-body">
@@ -20,4 +20,5 @@
         </div> 
       </div>
     </div>
-  </div> 
+</div> 
+<p (click)=repoResult()>See more</p>
