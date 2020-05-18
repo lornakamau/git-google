@@ -45,6 +45,7 @@ export class SearchGitService {
         this.user.followers =  response.followers
         this.user.following =  response.following
         this.user.public_repos =  response.public_repos
+        console.log("Number of public repos",this.user.public_repos)
         this.user.created_at =  response.created_at
         this.user.avatar_url =  response.avatar_url
         this.user.email = response.email
@@ -72,7 +73,7 @@ export class SearchGitService {
         this.repos.pop()
       }
       this.http.get<repoApiResponse>(`${environment.gitUrl}${username}/repos?client_id=${environment.API_Key}`).toPromise().then(response=>{
-        for(let i=0; i<response["length"]; i++){
+        for(let i=0; i<this.user.public_repos; i++){
           let repo = new Repositories("","","","",0,new Date());
         repo.name =  response[i]["name"]
         repo.description =  response[i]["description"]
@@ -105,6 +106,7 @@ export class SearchGitService {
         }
         this.http.get<repoByNameApiResponse>(`https://api.github.com/search/repositories?q=${reponame}`).toPromise().then(response=>{
           this.numberOfRepos =response.total_count
+          console.log("Number of repos",this.numberOfRepos)
           // this.repositories = response.items
           for(let i=0; i<response.items.length; i++){
             let repoByName = new RepositoriesByName ("","","","",0,new Date());
@@ -117,10 +119,10 @@ export class SearchGitService {
           this.reposByName.push(repoByName)
           }
           resolve()
-          console.log(this.reposByName)
+          // console.log(this.reposByName)
         },
         error=>{
-          this.numberOfRepos= 0;
+          this.numberOfRepos= 0; 
           console.log("an error occured")
           reject(error)
         })

@@ -17,10 +17,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { DaysAgoPipe } from './pipes/days-ago.pipe';
-import { LanguageColorDirective } from './directives/language-color.directive';
 import { RepoResultComponent } from './components/repo-result/repo-result.component';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
+import { VisitedRepositoryDirective } from './directives/visited-repository.directive';
 
 @NgModule({
   declarations: [
@@ -31,8 +31,8 @@ import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
     PageNotFoundComponent,
     MyProfileComponent,
     DaysAgoPipe,
-    LanguageColorDirective,
-    RepoResultComponent
+    RepoResultComponent,
+    VisitedRepositoryDirective
   ],
   imports: [
     BrowserModule,

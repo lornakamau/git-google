@@ -3,15 +3,15 @@
   <p>We couldn’t find any repository matching '{{reponame}}'</p><br>
   <p>Please enter a valid repository name.</p>
 </div>
-<div *ngIf="numberOfRepos !== 0" class="text-center">
-  <p id="heading">A total of {{numberOfRepos}} repositories were detected.</p>
+<div *ngIf="numberOfRepos !== 0">
+  <p id="heading" class="text-center">A total of {{numberOfRepos}} repositories were detected.</p>
   <div class="cards">
     <div class="card" *ngFor="let repoByName of reposByName">
       <div class="card-body">
-        <div class="card-title"><a href={{repoByName.html_url}} target="_blank">{{repoByName.name|titlecase}}</a></div>
+        <div class="card-title"><a href={{repoByName.html_url}} target="_blank" appVisitedRepository>{{repoByName.name|titlecase}}</a></div>
         <p class="card-text" *ngIf="repoByName.description">{{repoByName.description}}</p>
         <p class="card-text" *ngIf="!repoByName.description">No description is available for this repository</p>
-        <small>Last updated on {{repoByName.updated_at|date}}</small><br>
+        <small>Last updated on {{repoByName.updated_at|date}}&nbsp;({{repoByName.updated_at|daysAgo}}) days(s) ago</small><br>
         <div class="card-bottom">
           <div *ngIf="repoByName.language">
             <i class="fas fa-circle"></i>&nbsp;{{repoByName.language}}
@@ -26,5 +26,4 @@
       </div>
     </div>
   </div>
-  <p (click)=repoResult()>See more</p>
 </div>
