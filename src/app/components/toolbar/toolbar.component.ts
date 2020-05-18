@@ -5,6 +5,7 @@ import { Repositories } from 'src/app/models/repositories';
 import { Router } from '@angular/router';
 import { SearchResultComponent} from '../searchResult/searchResult.component';
 import { RepositoriesByName } from '../../models/repositories-by-name';
+import { NumberOfRepositories } from '../../models/number-of-repositories';
 
 @Component({
   selector: 'app-toolbar',
@@ -20,9 +21,10 @@ export class ToolbarComponent implements OnInit {
   reposByName:RepositoriesByName[];
   reponame:string;
   isShowUserForm = false;
-  isShowRepoForm = false;
-
-  constructor( private router: Router, private searchGitService: SearchGitService ) { }
+  isShowRepoForm = false; 
+  numberOfRepos: NumberOfRepositories;
+  
+  constructor( private router: Router, private searchGitService: SearchGitService ) {}
   toggleUserForm(){
     this.isShowUserForm = !this.isShowUserForm;
   }
@@ -39,8 +41,10 @@ export class ToolbarComponent implements OnInit {
   findRepos(){
     this.router.navigate(['/repo-result',this.reponame]);
     this.searchGitService.repoByNameRequest(this.reponame);
-    this.reposByName =this.searchGitService.reposByName
-  }
+    this.reposByName =this.searchGitService.reposByName;
+    this.searchGitService.repoByNameNumberRequest(this.reponame);
+    this.numberOfRepos =this.searchGitService.numberOfRepos;
+  } 
   ngOnInit(){
   }
 

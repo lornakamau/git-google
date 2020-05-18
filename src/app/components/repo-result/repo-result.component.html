@@ -1,10 +1,10 @@
-<div *ngIf="numberOfRepos === 0" class="text-center" style="font-size: 1.5rem; padding-top: 6%;">
+<div *ngIf="numberOfRepos.total_count === 0" class="text-center" style="font-size: 1.5rem; padding-top: 6%;">
   <img src="../../../assets/images/search.png" style="width: 8rem;"><br><br><br>
   <p>We couldn’t find any repository matching '{{reponame}}'</p><br>
   <p>Please enter a valid repository name.</p>
 </div>
-<div *ngIf="numberOfRepos !== 0">
-  <p id="heading" class="text-center">A total of {{numberOfRepos}} repositories were detected.</p>
+<div *ngIf="numberOfRepos.total_count !== 0">
+  <p id="heading" class="text-center">A total of {{numberOfRepos.total_count}} repositories were detected.</p>
   <div class="cards">
     <div class="card" *ngFor="let repoByName of reposByName">
       <div class="card-body">

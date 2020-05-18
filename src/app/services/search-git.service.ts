@@ -5,6 +5,7 @@ import { Users } from '../models/users';
 import { Repositories } from '../models/repositories';
 import { ActivatedRoute } from '@angular/router';
 import { RepositoriesByName } from '../models/repositories-by-name';
+import { NumberOfRepositories } from '../models/number-of-repositories';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,12 @@ export class SearchGitService {
   username:string;
   reposByName:RepositoriesByName[] = [];
   reponame: string;
-  numberOfRepos: number;
+  numberOfRepos: NumberOfRepositories;
   repositories =[]
 
   constructor( private http:HttpClient, private route: ActivatedRoute ) {
     this.user = new Users("","","","",0,0,0,new Date (),"","");
+    this.numberOfRepos = new NumberOfRepositories(0)
   }
   
   userInfoRequest(username){
@@ -45,7 +47,6 @@ export class SearchGitService {
         this.user.followers =  response.followers
         this.user.following =  response.following
         this.user.public_repos =  response.public_repos
-        console.log("Number of public repos",this.user.public_repos)
         this.user.created_at =  response.created_at
         this.user.avatar_url =  response.avatar_url
         this.user.email = response.email
@@ -96,7 +97,7 @@ export class SearchGitService {
   // https://api.github.com/search/repositories?q=lorna+portfolio
   repoByNameRequest(reponame){
     interface repoByNameApiResponse{
-      total_count:number,
+      // total_count:number,
       items: []
       } 
       let promise = new Promise((resolve,reject)=>{
@@ -105,8 +106,8 @@ export class SearchGitService {
           this.reposByName.pop()
         }
         this.http.get<repoByNameApiResponse>(`https://api.github.com/search/repositories?q=${reponame}`).toPromise().then(response=>{
-          this.numberOfRepos =response.total_count
-          console.log("Number of repos",this.numberOfRepos)
+          // this.numberOfRepos.repoCount =response.total_count
+          // console.log("Number of repos",this.numberOfRepos)
           // this.repositories = response.items
           for(let i=0; i<response.items.length; i++){
             let repoByName = new RepositoriesByName ("","","","",0,new Date());
@@ -122,7 +123,7 @@ export class SearchGitService {
           // console.log(this.reposByName)
         },
         error=>{
-          this.numberOfRepos= 0; 
+          // this.numberOfRepos.repoCount= 0; 
           console.log("an error occured")
           reject(error)
         })
@@ -130,6 +131,25 @@ export class SearchGitService {
       return promise
   }
   
+  repoByNameNumberRequest(reponame){
+    interface repoByNameNumberApiResponse{
+      total_count:number
+      } 
+      let promise = new Promise((resolve,reject)=>{
+        this.http.get<repoByNameNumberApiResponse>(`https://api.github.com/search/repositories?q=${reponame}`).toPromise().then(response=>{
+          this.numberOfRepos.total_count =response.total_count
+          console.log("Number of repos",this.numberOfRepos)
+          resolve()
+          console.log("Numbers",this.numberOfRepos.total_count)
+        },
+        error=>{
+          this.numberOfRepos.total_count= 0; 
+          console.log("an error occured")
+          reject(error)
+        })
+      })
+      return promise
+  }
 }
   
       

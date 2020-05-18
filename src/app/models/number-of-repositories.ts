@@ -1,4 +1,3 @@
 export class NumberOfRepositories {
-    constructor(public repoCount:number)
-    {this.repoCount=0;}
+    constructor(public total_count:number){}
 }
