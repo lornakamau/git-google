@@ -1,6 +1,6 @@
 [![codebeat badge](https://codebeat.co/badges/dcfe6f01-c3eb-400e-8875-78a84b9a0c79)](https://codebeat.co/projects/github-com-lornakamau-git-google-master)
 # GitGoogle
-#### A Github finder that allows users to search for users by username and find repositories by reponame , 17/05/2020.
+#### A Github finder that allows users to search for Github users by username and Github repositories by reponame , 17/05/2020.
 #### By Lorna Kamau
 
 ## Description
@@ -32,6 +32,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 #### Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+#### Making modifications
+
 To make advancements/modifications, follow these steps:
 
 - Fork the repository
