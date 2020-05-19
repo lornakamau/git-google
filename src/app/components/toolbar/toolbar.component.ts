@@ -25,12 +25,15 @@ export class ToolbarComponent implements OnInit {
   numberOfRepos: NumberOfRepositories;
   
   constructor( private router: Router, private searchGitService: SearchGitService ) {}
+
   toggleUserForm(){
     this.isShowUserForm = !this.isShowUserForm;
   }
+
   toggleRepoForm(){
     this.isShowRepoForm = !this.isShowRepoForm;
   }
+
   findProfile(){
     this.router.navigate(['/search-result',this.username]);
     this.searchGitService.userInfoRequest(this.username)
@@ -38,6 +41,7 @@ export class ToolbarComponent implements OnInit {
     this.searchGitService.userRepoRequest(this.username)
     this.repos =this.searchGitService.repos
   }
+
   findRepos(){
     this.router.navigate(['/repo-result',this.reponame]);
     this.searchGitService.repoByNameRequest(this.reponame);
@@ -45,7 +49,7 @@ export class ToolbarComponent implements OnInit {
     this.searchGitService.repoByNameNumberRequest(this.reponame);
     this.numberOfRepos =this.searchGitService.numberOfRepos;
   } 
+
   ngOnInit(){
   }
-
 }

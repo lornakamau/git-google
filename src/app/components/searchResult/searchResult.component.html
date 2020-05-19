@@ -1,6 +1,5 @@
 <div id="content" class="container-fluid">
-  <div *ngIf="user.login === 'User not found'" class="text-center"
-    style="font-size: 1.5rem;">
+  <div *ngIf="user.login === 'User not found'" class="text-center" style="font-size: 1.5rem;">
     <img src="../../../assets/images/search.png" style="width: 8rem;"><br><br><br>
     <p>We couldn’t find any users matching '{{username}}'</p><br>
     <p>Please enter a valid username.</p>
@@ -17,7 +16,8 @@
               <p *ngIf="user.login"><span>Username:</span>&nbsp;&nbsp;{{user.login}}</p>
               <p><span>Followers:</span>&nbsp;&nbsp;{{user.followers}}</p>
               <p><span>Following:</span>&nbsp;&nbsp;{{user.following}}</p>
-              <p *ngIf="user.public_repos"><span>Number of public repositories:</span>&nbsp;&nbsp;{{user.public_repos}}</p>
+              <p *ngIf="user.public_repos"><span>Number of public repositories:</span>&nbsp;&nbsp;{{user.public_repos}}
+              </p>
               <p *ngIf="user.bio"><span>Bio:</span>&nbsp;&nbsp;{{user.bio}}</p>
               <p *ngIf="user.created_at"><span>Created
                   on:</span>&nbsp;&nbsp;{{user.created_at|date}}&nbsp;({{user.created_at|daysAgo}}) days(s) ago</p>
@@ -28,7 +28,8 @@
             <div class="tabcontent cards">
               <div class="card" *ngFor="let repo of repos">
                 <div class="card-body">
-                  <div class="card-title"><a href={{repo.html_url}} target="_blank" appVisitedRepository>{{repo.name|titlecase}}</a></div>
+                  <div class="card-title"><a href={{repo.html_url}} target="_blank"
+                      appVisitedRepository>{{repo.name|titlecase}}</a></div>
                   <p class="card-text" *ngIf="repo.description">{{repo.description}}</p>
                   <p class="card-text" *ngIf="!repo.description">No description is available for this repository</p>
                   <small>Last updated on {{repo.updated_at|date}}</small><br>

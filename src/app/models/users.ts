@@ -1,5 +1,4 @@
 export class Users {
-    // public displayRepos:boolean;
     constructor(
         public name:string,
         public login:string,
@@ -7,10 +6,8 @@ export class Users {
         public url: string,
         public followers: number,
         public following: number,
-        public public_repos : number, //check this out
+        public public_repos : number, 
         public created_at : Date,
         public avatar_url:string,
-        public email:string){
-            // this.displayRepos = false
-        }
+        public email:string){}
 }

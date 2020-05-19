@@ -1,29 +1,31 @@
 <mat-toolbar class="navbar">
-  <div style="font-size: 1.5rem;">GitG<span> 
-    <img
-    width="30"
-    alt="Angular Logo"
-    src="../assets/images/github.png"
-    style="padding-bottom: 10%;"
-  /></span>ogle</div>
+  <div style="font-size: 1.5rem;">GitG<span>
+      <img width="30" alt="Angular Logo" src="../assets/images/github.png" style="padding-bottom: 10%;" /></span>ogle
+  </div>
   <div class="links">
-    <a routerLink = "/home" routerLinkActive = "activeRoute">Home</a>
-    <a (click) = toggleUserForm() *ngIf = "!isShowUserForm">Find a user</a>
-    <form #userForm="ngForm" *ngIf = "isShowUserForm">
-      <div class="input-group" style="width: 13rem"> 
-        <input type="text" class="form-control" placeholder="Search by username" aria-describedby="button-addon2" [(ngModel)]= "username" name="username" style="background-color: transparent; color: white;">
+    <a routerLink="/home" routerLinkActive="activeRoute">Home</a>
+    <a (click)=toggleUserForm() *ngIf="!isShowUserForm">Find a user</a>
+    <form #userForm="ngForm" *ngIf="isShowUserForm">
+      <div class="input-group" style="width: 13rem">
+        <input type="text" class="form-control" placeholder="Search by username" aria-describedby="button-addon2"
+          [(ngModel)]="username" name="username" style="background-color: transparent; color: white;">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" routerLink = "/search-result" routerLinkActive = "activeRoute" (click)="findProfile();toggleUserForm(); userForm.reset()"><a><i class="fas fa-search" style="width:0.4rem;"></i></a></button>
+          <button class="btn btn-outline-secondary" type="button" routerLink="/search-result"
+            routerLinkActive="activeRoute" (click)="findProfile();toggleUserForm(); userForm.reset()"><a><i
+                class="fas fa-search" style="width:0.4rem;"></i></a></button>
         </div>
       </div>
     </form>&nbsp;&nbsp;
-    <a (click) = toggleRepoForm() *ngIf = "!isShowRepoForm">Find a repo</a>
-    <form #repoForm="ngForm" *ngIf = "isShowRepoForm">
+    <a (click)=toggleRepoForm() *ngIf="!isShowRepoForm">Find a repo</a>
+    <form #repoForm="ngForm" *ngIf="isShowRepoForm">
       <div class="input-group" style="width: 13rem">
-        <input type="text" class="form-control" placeholder="Search by reponame" aria-describedby="button-addon2" [(ngModel)]= "reponame" name="reponame" style="background-color: transparent; color: white;">
+        <input type="text" class="form-control" placeholder="Search by reponame" aria-describedby="button-addon2"
+          [(ngModel)]="reponame" name="reponame" style="background-color: transparent; color: white;">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" routerLink = "/repo-result" routerLinkActive = "activeRoute" (click)="findRepos(); toggleRepoForm(); repoForm.reset()"><a><i class="fas fa-search" style="width:0.4rem;"></i></a></button>
-        </div> 
+          <button class="btn btn-outline-secondary" type="button" routerLink="/repo-result"
+            routerLinkActive="activeRoute" (click)="findRepos(); toggleRepoForm(); repoForm.reset()"><a><i
+                class="fas fa-search" style="width:0.4rem;"></i></a></button>
+        </div>
       </div>
     </form>
   </div>
